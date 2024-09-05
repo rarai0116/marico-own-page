@@ -2,32 +2,98 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* グローバルな段落スタイル */
+p {
+  @apply mb-2 mt-4; /* 段落の下にマージンを追加 */
+}
+/*WordPress用カスタムスタイル*/
+.wp-block-table tr td:first-child {
+  @apply pr-8; /* テーブルの最初の列に右マージンを追加 */
+}
+.has-text-align-center{
+    @apply text-center; /* テキストを中央揃えにする */
+}
+.has-text-align-right{
+    @apply text-right; /* テキストを右揃えにする */
+}
+.has-text-align-left{
+    @apply text-left; /* テキストを左揃えにする */
+}
+.has-large-font-size{
+    @apply text-2xl; /* テキストを大きくする */
+}
+/* 閉じているときのボタン */
+.hamburger-btn, .hamburger-btn span {
+  /* display: inline-block; */
+  transition: all .5s;
+  box-sizing: border-box;
+}
+.top-menu li a {
+    font-size: 16px;
+    padding: 10px 12px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+/* メニューが開いているときのボタン */
+.hamburger-btn.open{
+  background-color: transparent;
+}
+
+.hamburger-btn.open span:nth-of-type(1) {
+  -webkit-transform: translateY(12px) rotate(-45deg);
+  transform: translateY(12px) rotate(-45deg);
+}
+.hamburger-btn.open span:nth-of-type(2) {
+  opacity: 0;
+}
+.hamburger-btn.open span:nth-of-type(3) {
+  -webkit-transform: translateY(-12px) rotate(45deg);
+  transform: translateY(-12px) rotate(45deg);
+}
+.sp-nav-menu.open{
+  background-color: white;
+  animation-name: navOpen;
+  animation-duration: .5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal; 
+  animation-fill-mode: forwards; 
+}
+
+@keyframes navOpen {
+  0% {
+  opacity: 0;
+  }
+  100% {
+  opacity: 1;
+  }
+  }
+
+
+/* ハンバーガーメニュー閉じる */
+.sp-nav-menu.close{
+  /* display: none;だとアニメーションが効かない */
+  background-color: white;
+  animation-name: navHide;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal; 
+  animation-fill-mode: forwards;
+}
+
+
+@keyframes navHide {
+  0% {
+    opacity: 1;
+    z-index: 2;
+  }
+  100% {
+    opacity: 0;
+    z-index: -1;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
+
