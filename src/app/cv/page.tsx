@@ -11,7 +11,7 @@ const Cv = async () => {
     <main>
       <FlexibleMenu />
       <div key="page_cv" className="flex flex-col ml-[5%] mb-[10%] w-[90%]">
-        <WpParserElements post={post} />
+        <WpParserElements rendered={post.content.rendered} />
       </div>
     </main>
   );

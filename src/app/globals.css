@@ -22,6 +22,9 @@ p {
 .has-large-font-size{
     @apply text-2xl; /* テキストを大きくする */
 }
+.wp-block-image img{
+  @apply mt-7 mb-7; /* 画像の上下にマージンを追加 */
+}
 /* 閉じているときのボタン */
 .hamburger-btn, .hamburger-btn span {
   /* display: inline-block; */

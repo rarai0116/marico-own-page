@@ -11,7 +11,8 @@ const Contact = async () => {
     <main>
       <FlexibleMenu />
       <div className="flex flex-col ml-[5%] mb-[10%] w-[90%] pr-24">
-        <WpParserElements post={post} />
+        <WpParserElements rendered={post.content.rendered} />
+        <div className="mt-[500px]">this site designed by Studio Corobo</div>
       </div>
     </main>
   );

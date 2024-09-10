@@ -5,14 +5,14 @@ import parse from 'html-react-parser';
 import type {Post} from '@/app/api/fetchData';
 
 type Props = {
-  post: Post;
+  rendered: string;
 };
 
 const window = new JSDOM('').window;
 const DomPurifyServer = DOMPurify(window);
 
-const WpParserElements = ({post}: Props) => {
-  const sanitizedHtml = DomPurifyServer.sanitize(post.content.rendered);
+const WpParserElements = ({rendered}: Props) => {
+  const sanitizedHtml = DomPurifyServer.sanitize(rendered);
 
   return parse(sanitizedHtml);
 };
