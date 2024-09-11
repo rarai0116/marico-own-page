@@ -10,7 +10,11 @@ const config: Config = {
     extend: {
       colors: {
         'custom-yellow': '#ffff14',
+        'custom-dark-yellow': '#dd7705',
         'custom-cyan': '#14ffff',
+        'custom-dark-cyan': '#0577dd',
+        'custom-vivid-green': '#14dd89',
+        'hr-dark-blue': '#003266',
       },
       fontFamily: {
         customFont: ['Arial', 'Helvetica', 'sans-serif'],

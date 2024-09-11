@@ -27,28 +27,29 @@ type ArticlesContextType = {
   articles: ArticlePost[];
 };
 
-export const WorksContext = createContext<ArticlesContextType>(
+export const ArticlesContext = createContext<ArticlesContextType>(
   {} as ArticlesContextType,
 );
 
 const ArticlesContextProvider = (props: ArticlesContextProps) => {
   const articles = useMemo(() => {
+    console.log('articles', props.posts);
     return props.posts
       .reduce((acc: ArticlePost[], cur) => {
-        if (cur.title.rendered.length === 0) return acc;
-        if (cur.content.rendered.length === 0) return acc;
-        if (cur.tag_info.length === 0) return acc;
-        if (!cur._embedded['wp:featuredmedia']) return acc;
+        if (cur.title.length === 0) return acc;
+        if (cur.content.length === 0) return acc;
+        if (cur.tags.length === 0) return acc;
+        if (!cur['wp:featuredmedia']) return acc;
         const id = cur.id;
-        const title = cur.title.rendered;
-        const content = cur.content.rendered;
+        const title = cur.title;
+        const content = cur.content;
         const modified =
           new Date(cur.modified) instanceof Date
             ? new Date(cur.modified)
             : undefined;
         if (!modified) return acc;
-        const iconPath = cur._embedded['wp:featuredmedia'][0]?.source_url;
-        const tags = cur.tag_info.map((tag: {name: string}) => tag.name);
+        const iconPath = cur['wp:featuredmedia'];
+        const tags = cur.tags.map((tag: {name: string}) => tag.name);
         return [...acc, {id, title, modified, content, tags, iconPath}];
       }, [])
       .sort((a, b) => {
@@ -62,16 +63,16 @@ const ArticlesContextProvider = (props: ArticlesContextProps) => {
   const value = useMemo(() => ({articles}), [articles]);
 
   return (
-    <WorksContext.Provider value={value}>
+    <ArticlesContext.Provider value={value}>
       {props.children}
-    </WorksContext.Provider>
+    </ArticlesContext.Provider>
   );
 };
 
-export const useWorks = () => {
-  const context = useContext(WorksContext);
+export const useArticles = () => {
+  const context = useContext(ArticlesContext);
   if (!context) {
-    throw new Error('useWorks must be used within a WorksProvider');
+    throw new Error('useArticles must be used within a ArticlesProvider');
   }
 
   return context;

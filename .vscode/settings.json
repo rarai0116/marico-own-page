@@ -3,5 +3,7 @@
     "editor.formatOnSave": true,
     "xo.format.enable": true,
     "xo.trace.server": "messages",
-    "standard.autoFixOnSave": true
+    "standard.autoFixOnSave": true,
+    "notebook.defaultFormatter": "samverschueren.linter-xo",
+    "editor.defaultFormatter": "samverschueren.linter-xo"
 }

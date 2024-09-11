@@ -40,7 +40,7 @@ export const revalidatePost = async (paths: string[], tags: string[]) => {
   console.log('Revalidation response:', res);
 };
 
-export const fetchPost = async (path: string): Promise<Post> => {
+export const fetchPost = async (path: string, tag: string): Promise<Post> => {
   console.log('Fetching posts:', path);
   const res = await fetch(`${WORDPRESS_REST_ROOT_URL}wp/v2${path}`, {
     method: 'GET',
@@ -67,6 +67,9 @@ export const fetchWorksPosts = async (): Promise<WorkPost[]> => {
   console.log('Fetching posts', `${WORDPRESS_REST_ROOT_URL}custom/v2/works`);
   const res = await fetch(`${WORDPRESS_REST_ROOT_URL}custom/v2/works`, {
     method: 'GET',
+    next: {
+      tags: ['works'],
+    },
   });
   if (!res.ok) {
     throw new Error(`HTTP error! status: ${res.status}`);
@@ -79,27 +82,24 @@ export const fetchWorksPosts = async (): Promise<WorkPost[]> => {
 
 export type WpArticlePost = {
   id: number;
-  title: {rendered: string};
+  title: string;
   modified: string;
-  content: {rendered: string};
-  tag_info: Array<{
+  content: string;
+  tags: Array<{
     term_id: number;
     name: string;
   }>;
-  _embedded: {
-    'wp:featuredmedia'?: Array<{
-      source_url?: string;
-    }>;
-  };
+  'wp:featuredmedia': string | false;
 };
 
-export const fetchArticlePosts = async (
-  pageNum: number,
-): Promise<WpArticlePost[]> => {
-  const path = `${WORDPRESS_REST_ROOT_URL}wp/v2/posts?categories=5&per_page=5&page=${pageNum}&_embed`;
+export const fetchArticlePosts = async (): Promise<WpArticlePost[]> => {
+  const path = `${WORDPRESS_REST_ROOT_URL}custom/v2/article`;
   console.log('Fetching posts', path);
   const res = await fetch(path, {
     method: 'GET',
+    next: {
+      tags: ['article'],
+    },
   });
   if (!res.ok) {
     throw new Error(`HTTP error! status: ${res.status}`);

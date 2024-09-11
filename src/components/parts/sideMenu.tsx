@@ -25,13 +25,13 @@ const SideMenu = () => {
         onClick={toggleMenu}
       >
         <span
-          className={`absolute left-0 w-10 h-0.5 ${isOpen ? 'bg-green-600' : 'bg-yellow-500'} top-0`}
+          className={`absolute left-0 w-10 h-0.5 ${isOpen ? 'bg-custom-vivid-green' : 'bg-yellow-500'} top-0`}
         />
         <span
-          className={`absolute left-0 w-10 h-0.5 ${isOpen ? 'bg-green-600' : 'bg-yellow-500'} top-3`}
+          className={`absolute left-0 w-10 h-0.5 ${isOpen ? 'bg-custom-vivid-green' : 'bg-yellow-500'} top-3`}
         />
         <span
-          className={`absolute left-0 w-10 h-0.5 ${isOpen ? 'bg-green-600' : 'bg-yellow-500'} top-6`}
+          className={`absolute left-0 w-10 h-0.5 ${isOpen ? 'bg-custom-vivid-green' : 'bg-yellow-500'} top-6`}
         />
       </div>
 
@@ -42,11 +42,11 @@ const SideMenu = () => {
         {menuItems.map((item) => (
           <li
             key={item.key}
-            className={`relative top-25 left-5 text-4xl text-left mb-2.5 ml-3/4 ${isOpen ? 'block' : 'hidden'}`}
+            className="relative top-25 left-5 text-4xl text-left mb-2.5 ml-3/4"
           >
             <Link
               href={item.href}
-              className="text-green-600 hover:text-blue-800"
+              className="text-custom-vivid-green hover:text-blue-800"
             >
               {item.title}
             </Link>

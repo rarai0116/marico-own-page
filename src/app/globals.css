@@ -25,6 +25,22 @@ p {
 .wp-block-image img{
   @apply mt-7 mb-7; /* 画像の上下にマージンを追加 */
 }
+
+/* リンク汎用スタイル */
+a {
+  @apply cursor-pointer
+}
+/* トップメニュー用スタイル */
+.top-menu li a{
+  @apply text-custom-yellow hover:text-green-500;
+}
+/* worksページ用スタイル */
+.works-wrapper a{
+  @apply text-custom-dark-cyan;
+}
+.works-wrapper a:hover{
+  @apply text-custom-cyan;
+}
 /* 閉じているときのボタン */
 .hamburger-btn, .hamburger-btn span {
   /* display: inline-block; */
@@ -53,7 +69,7 @@ p {
   transform: translateY(-12px) rotate(45deg);
 }
 .sp-nav-menu.open{
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.92);
   animation-name: navOpen;
   animation-duration: .5s;
   animation-timing-function: ease-out;
@@ -76,9 +92,9 @@ p {
 /* ハンバーガーメニュー閉じる */
 .sp-nav-menu.close{
   /* display: none;だとアニメーションが効かない */
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.92);
   animation-name: navHide;
-  animation-duration: 0.5s;
+  animation-duration: 0.2s;
   animation-timing-function: ease-out;
   animation-delay: 0s;
   animation-iteration-count: 1;
@@ -91,12 +107,27 @@ p {
   0% {
     opacity: 1;
     z-index: 2;
+    display: block;
+    background-color: rgba(255, 255, 255, 92);
   }
   100% {
     opacity: 0;
     z-index: -1;
+    display: none;
+    background-color: rgba(255, 255, 255, 0);
   }
 }
 
+/* アイコンブルブル */
+.icon-img:hover{
+  @apply inline-block;
+  animation: hurueru .1s  infinite;
+}
 
-
+@keyframes hurueru {
+  0% {transform: translate(0px, 0px) rotateZ(0deg)}
+  25% {transform: translate(2px, 2px) rotateZ(1deg)}
+  50% {transform: translate(0px, 2px) rotateZ(0deg)}
+  75% {transform: translate(2px, 0px) rotateZ(-1deg)}
+  100% {transform: translate(0px, 0px) rotateZ(0deg)}
+}

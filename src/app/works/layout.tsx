@@ -1,7 +1,7 @@
 import {fetchWorksPosts} from '../api/fetchData';
 import type {Work} from '../../context/worksContext';
-import WorksContextProvider from '../../context/worksContext';
 import FlexibleMenu from '@/components/organisms/flexibleMenu';
+import WorksProviders from '@/context/worksProviders';
 
 const WorksLayout = async ({
   children,
@@ -24,7 +24,6 @@ const WorksLayout = async ({
     const iconPath = cur['wp:featuredmedia'];
     const id = cur.id;
     const tags = cur.tags.map((tag: {name: string}) => tag.name);
-    console.log('hoge', tags[0]);
     return {
       ...acc,
       [tags[0]]: [
@@ -34,12 +33,12 @@ const WorksLayout = async ({
     };
   }, {});
   return (
-    <WorksContextProvider works={works}>
+    <WorksProviders works={works}>
       <main>
         <FlexibleMenu />
         {children}
       </main>
-    </WorksContextProvider>
+    </WorksProviders>
   );
 };
 

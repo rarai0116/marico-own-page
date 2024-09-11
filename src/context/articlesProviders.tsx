@@ -2,7 +2,7 @@
 import ArticlesContextProvider from './articlesContext';
 import type {WpArticlePost} from '@/app/api/fetchData';
 
-export const WorksProviders = ({
+export const ArticlesProviders = ({
   children,
   posts,
 }: {
@@ -14,4 +14,4 @@ export const WorksProviders = ({
   );
 };
 
-export default WorksProviders;
+export default ArticlesProviders;

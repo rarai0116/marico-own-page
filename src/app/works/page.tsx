@@ -5,9 +5,11 @@ import {useWorks} from '@/context/worksContext';
 
 const Works = () => {
   const {works} = useWorks();
+  console.log('works', works);
   return (
     <div className="flex flex-col ml-[5%] mb-[10%] w-[90%] pr-24">
       {Object.keys(works).map((key) => {
+        if (Number.isNaN(Number(key))) return null;
         return (
           <div key={`works_year_${key}`}>
             <p>{key}</p>
@@ -17,6 +19,7 @@ const Works = () => {
                 <Link key={`link_${workKey}`} href={`/works/${workKey}`}>
                   <Image
                     key={`works_icon_${work.title}`}
+                    className="icon-img"
                     src={work.iconPath}
                     alt={work.title}
                     width={150}

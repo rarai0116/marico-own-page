@@ -69,7 +69,14 @@ export async function PUT(request: NextRequest) {
     }
 
     for (const tag of correctTags) {
-      revalidateTag(tag);
+      // uncategorizedタグの場合は、worksタグとarticleタグの両方を再検証する
+      if (tag === 'uncategorized') {
+        revalidateTag('works');
+        revalidateTag('article');
+        continue;
+      } else {
+        revalidateTag(tag);
+      }
     }
 
     console.log(

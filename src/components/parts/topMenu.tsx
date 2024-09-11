@@ -6,36 +6,19 @@ const TopMenu = () => {
       <nav className="block top-menu">
         <ul className="mr-[5%] p-0 list-none flex flex-row justify-end">
           <li>
-            <Link href="/" className="text-custom-yellow hover:text-green-500">
-              home
-            </Link>
+            <Link href="/">home</Link>
           </li>
           <li>
-            <Link
-              href="/cv"
-              className="text-custom-yellow hover:text-green-500"
-            >
-              cv
-            </Link>
+            <Link href="/cv">cv</Link>
           </li>
           <li>
             <Link href="/article">article</Link>
           </li>
           <li>
-            <Link
-              href="/statement"
-              className="text-custom-yellow hover:text-green-500"
-            >
-              statement
-            </Link>
+            <Link href="/statement">statement</Link>
           </li>
           <li>
-            <Link
-              href="/works"
-              className="text-custom-yellow hover:text-green-500"
-            >
-              works
-            </Link>
+            <Link href="/works">works</Link>
           </li>
           <li>
             <Link href="/contact">contact</Link>

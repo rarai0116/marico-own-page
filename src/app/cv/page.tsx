@@ -3,7 +3,7 @@ import WpParserElements from '@/components/parts/wpParserElements';
 import FlexibleMenu from '@/components/organisms/flexibleMenu';
 
 const Cv = async () => {
-  const post = await fetchPost('/pages/11').catch((error: unknown) => {
+  const post = await fetchPost('/pages/11', '/cv').catch((error: unknown) => {
     console.error('Error:', error);
     throw new Error('Error fetching post');
   });
