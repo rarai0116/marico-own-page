@@ -24,6 +24,12 @@ const WorksLayout = async ({
     const iconPath = cur['wp:featuredmedia'];
     const id = cur.id;
     const tags = cur.tags.map((tag: {name: string}) => tag.name);
+    //降降
+    tags.sort((a, b) => {
+      if (a < b) return -1;
+      if (a > b) return 1;
+      return 0;
+    });
     return {
       ...acc,
       [tags[0]]: [

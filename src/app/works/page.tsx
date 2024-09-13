@@ -13,21 +13,25 @@ const Works = () => {
         return (
           <div key={`works_year_${key}`}>
             <p>{key}</p>
+            <div className="flex flex-row flex-wrap items-center">
             {works[key].map((work) => {
               const workKey = `${key}_${work.id}`;
               return (
-                <Link key={`link_${workKey}`} href={`/works/${workKey}`}>
+                <div key={`work_${workKey}`} className="mx-[5%] my-[10%] w-auto">
+                <Link key={`link_${workKey}`} href={`/works/${workKey}`} className='icon-img'>
                   <Image
                     key={`works_icon_${work.title}`}
-                    className="icon-img"
+                    className="h-full max-h-[150px] w-auto "
                     src={work.iconPath}
                     alt={work.title}
                     width={150}
                     height={150}
                   />
                 </Link>
+                </div>
               );
             })}
+            </div>
           </div>
         );
       })}
