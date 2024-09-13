@@ -2,13 +2,21 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import {useWorks} from '@/context/worksContext';
-
+import { useMemo } from 'react';
 const Works = () => {
   const {works} = useWorks();
   console.log('works', works);
+  const worksKeys = useMemo(
+    ()=> Object.keys(works).reduce((acc: string[], cur) => {
+    if (Number.isNaN(Number(cur))) return acc;
+    return [...acc, cur];
+    }, [])
+    .sort((a, b) => Number(b) - Number(a))
+  , [works]);
+
   return (
     <div className="flex flex-col ml-[5%] mb-[10%] w-[90%] pr-24">
-      {Object.keys(works).map((key) => {
+      {worksKeys.map((key) => {
         if (Number.isNaN(Number(key))) return null;
         return (
           <div key={`works_year_${key}`}>
