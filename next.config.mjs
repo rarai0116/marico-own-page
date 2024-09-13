@@ -1,7 +1,8 @@
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['localhost'], // ここに許可するホスト名を追加
+        domains: ['localhost', process.env.WORDPRESS_ORIGIN_DOMAIN], // ここに許可するホスト名を追加
     },
 };
 

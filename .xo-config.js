@@ -6,6 +6,7 @@ module.exports = {
     'tsconfig.json',
     'tailwind.config.js',
     'next-env.d.ts',
+    'next.config.mjs',
     'webpack.config.js',
     'README.md',
     '**/node_modules/**',
