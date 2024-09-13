@@ -2,6 +2,7 @@ import {fetchWorksPosts} from '../api/fetchData';
 import type {Work} from '../../context/worksContext';
 import FlexibleMenu from '@/components/organisms/flexibleMenu';
 import WorksProviders from '@/context/worksProviders';
+import Header from '@/components/parts/header';
 
 const WorksLayout = async ({
   children,
@@ -36,6 +37,7 @@ const WorksLayout = async ({
     <WorksProviders works={works}>
       <main>
         <FlexibleMenu />
+        <Header id={314} tagName="/works_header" />
         {children}
       </main>
     </WorksProviders>

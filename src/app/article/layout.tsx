@@ -1,6 +1,7 @@
 import {fetchArticlePosts} from '../api/fetchData';
 import FlexibleMenu from '@/components/organisms/flexibleMenu';
 import ArticlesProviders from '@/context/articlesProviders';
+import Header from '@/components/parts/header';
 
 const WorksLayout = async ({
   children,
@@ -15,6 +16,7 @@ const WorksLayout = async ({
     <ArticlesProviders posts={posts}>
       <main>
         <FlexibleMenu />
+        <Header id={318} tagName="/article_header" />
         {children}
       </main>
     </ArticlesProviders>

@@ -19,8 +19,20 @@ p {
 .has-text-align-left{
     @apply text-left; /* テキストを左揃えにする */
 }
+.has-xx-large-font-size{
+    @apply text-4xl; /* テキストを大きくする */
+}
+.has-x-large-font-size{
+    @apply text-3xl; /* テキストを大きくする */
+}
 .has-large-font-size{
     @apply text-2xl; /* テキストを大きくする */
+}
+.has-medium-font-size{
+    @apply text-xl; /* テキストを大きくする */
+}
+.has-small-font-size {
+    @apply text-sm; /* テキストを小さくする */
 }
 .wp-block-image img{
   @apply mt-7 mb-7; /* 画像の上下にマージンを追加 */
