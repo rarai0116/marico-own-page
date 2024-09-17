@@ -145,3 +145,11 @@ a {
   75% {transform: translate(2px, 0px) rotateZ(-1deg)}
   100% {transform: translate(0px, 0px) rotateZ(0deg)}
 }
+
+/* スマホ動画対応 */
+@media screen and (max-width:480px){
+  video {    
+    /* 幅が大きすぎるので調整 */
+    width: 300px;
+  }
+}

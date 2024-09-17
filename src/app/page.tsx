@@ -10,7 +10,7 @@ const Home = async () => {
   return (
     <main>
       <SideMenu />
-      <div className="flex w-[90%] h-[100vh] pr-24 justify-center items-center z-0">
+      <div className="flex w-[100%] h-[100vh] justify-center items-center z-0">
         <WpParserElements rendered={post.content.rendered} />
       </div>
     </main>
