@@ -21,7 +21,7 @@ const SideMenu = () => {
     <nav id="spc-nav" className="relative">
       <div
         id="hamburger-btn"
-        className={`hamburger-btn ${isOpen ? 'open' : 'close'} absolute top-6 right-10 w-16 h-16 z-30 cursor-pointer`}
+        className={`hamburger-btn ${isOpen ? 'open' : 'close'} absolute top-6 right-0 w-16 h-16 z-30 cursor-pointer`}
         onClick={toggleMenu}
       >
         <span
