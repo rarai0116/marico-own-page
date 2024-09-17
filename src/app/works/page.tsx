@@ -6,7 +6,6 @@ import {useWorks} from '@/context/worksContext';
 
 const Works = () => {
   const {works} = useWorks();
-  console.log('works', works);
   const worksKeys = useMemo(
     () =>
       Object.keys(works)
