@@ -25,13 +25,13 @@ const SideMenu = () => {
         onClick={toggleMenu}
       >
         <span
-          className={`absolute left-0 w-10 h-0.5 ${isOpen ? 'bg-custom-vivid-green' : 'bg-yellow-500'} top-0`}
+          className={`absolute left-0 w-10 h-0.5 ${isOpen ? 'bg-custom-vivid-green' : 'bg-custom-cyan'} top-0`}
         />
         <span
-          className={`absolute left-0 w-10 h-0.5 ${isOpen ? 'bg-custom-vivid-green' : 'bg-yellow-500'} top-3`}
+          className={`absolute left-0 w-10 h-0.5 ${isOpen ? 'bg-custom-vivid-green' : 'bg-custom-cyan'} top-3`}
         />
         <span
-          className={`absolute left-0 w-10 h-0.5 ${isOpen ? 'bg-custom-vivid-green' : 'bg-yellow-500'} top-6`}
+          className={`absolute left-0 w-10 h-0.5 ${isOpen ? 'bg-custom-vivid-green' : 'bg-custom-cyan'} top-6`}
         />
       </div>
 
