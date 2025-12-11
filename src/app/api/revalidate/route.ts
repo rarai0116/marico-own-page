@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import {revalidatePath, revalidateTag} from 'next/cache';
-import {headers} from 'next/headers';
 import {type NextRequest} from 'next/server';
 
 console.log('Worker started');
@@ -31,8 +30,7 @@ export async function PUT(request: NextRequest) {
   console.log('Received paths:', paths);
   console.log('Received tags:', tags);
 
-  const headersList = headers();
-  const authorizationHeader = headersList.get('authorization');
+  const authorizationHeader = request.headers.get('authorization');
 
   console.log('Authorization header:', authorizationHeader);
   console.log('Secret key:', REVALIDATE_SECRET_KEY);
@@ -71,11 +69,11 @@ export async function PUT(request: NextRequest) {
     for (const tag of correctTags) {
       // uncategorizedタグの場合は、worksタグとarticleタグの両方を再検証する
       if (tag === 'uncategorized') {
-        revalidateTag('works');
-        revalidateTag('article');
+        revalidateTag('works', 'default');
+        revalidateTag('article', 'default');
         continue;
       } else {
-        revalidateTag(tag);
+        revalidateTag(tag, 'default');
       }
     }
 

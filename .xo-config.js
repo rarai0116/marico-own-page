@@ -74,6 +74,6 @@ module.exports = {
   },
   // prettierを有効にする
   prettier: true,
-  space: 2,
+  space: 4,
   webpack: false, // webpackがうまく動かないため一時的に無効化
 }
